@@ -1,6 +1,6 @@
 ## Table of Contents  
-* [Reference Variables](https://github.com/arbitrarymahi/Bookmarks/edit/main/C%2B%2B.md#reference-variables-in-c-1)
-* [footnotes](https://github.com/arbitrarymahi/Bookmarks/edit/main/C%2B%2B.md#footnotes)
+* [Reference Variables](https://github.com/arbitrarymahi/C%2B%2B.md#reference-variables-in-c-1)
+* [footnotes](https://github.com/arbitrarymahi/C%2B%2B.md#footnotes)
 
 ## Reference variables in C++ [^1]
 ### What are variables in C++?
