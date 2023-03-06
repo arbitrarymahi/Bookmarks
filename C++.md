@@ -1,9 +1,10 @@
 ## Table of Contents  
-<a href="#smart-pointers1">Smart Pointers</a><br/>
-<a href="#reference-variables1">Reference Variables</a><br/>
+<a href="#smart-pointers-1">Smart Pointers</a><br/>
+<a href="#reference-variables-1">Reference Variables</a><br/>
+<a href="#memory-model-1">Memory Model</a><br/>
 <a href="#footnotes">footnotes</a><br/>
 
-## Smart Pointers[^1]
+## Smart Pointers [^1]
 ### Pointers
 In C++, a normal pointer is a variable that holds the memory address of another object. It is created using the * operator, and it can be dereferenced using the * operator to access the object it points to. Normal pointers are commonly used in C++ for dynamic memory allocation and for passing objects to functions by reference.
 
@@ -89,7 +90,7 @@ int main() {
 The need for smart pointers arises from the fact that C++ does not have garbage collection
     
 
-## Reference variables[^1]
+## Reference variables [^1]
 ### What are variables in C++?
 Variables are named memory locations that hold values of a specific type in a C++ program. In order to use variables in our program, we need to declare them first.
 
@@ -170,7 +171,61 @@ For example:
 void print(const int& n) {
     std::cout << n << std::endl;
 ```
+## Memory Model [^1]
+C++ is a programming language that provides a lot of flexibility when it comes to managing memory. Understanding the C++ memory model and lifetime of objects is crucial for writing efficient and robust programs.
 
+The memory model of a programming language defines how the memory is organized and accessed by the programs. In C++, the memory model is divided into two types of storage:
 
+1. **Stack**: The stack is a region of memory where variables and objects with automatic storage duration are allocated. The stack is a last-in, first-out (LIFO) data structure, which means that the most recently added item is the first to be removed.
+
+2. **Heap**: The heap is a region of memory where objects with dynamic storage duration are allocated. Unlike the stack, the heap is not managed automatically by the compiler. Instead, the programmer must explicitly request memory allocation and deallocation.
+
+### Lifetime of Objects
+The lifetime of an object in C++ is the period of time during which the object exists in memory. The lifetime of an object depends on its storage duration, which can be one of the following:
+
+1. **Static storage duration**: Objects with static storage duration are allocated at the start of the program and exist until the program terminates. Examples include global variables and static class members.
+
+2. **Thread storage duration**: Objects with thread storage duration are allocated for each thread and exist until the thread terminates. Examples include thread-local variables.
+
+3. **Automatic storage duration**: Objects with automatic storage duration are allocated on the stack when a function is called and exist until the function returns. Examples include local variables.
+
+4. **Dynamic storage duration**: Objects with dynamic storage duration are allocated on the heap and exist until they are explicitly deallocated. Examples include objects created with the new operator.
+
+### Stack vs Heap
+Stack allocation is faster than heap allocation because the stack is managed by the compiler, and the allocation and deallocation of stack memory are done automatically. However, the stack is limited in size, and the size of the objects allocated on the stack must be known at compile time.
+
+Heap allocation is slower than stack allocation because the allocation and deallocation of heap memory must be done manually by the programmer. However, the heap is not limited in size, and objects allocated on the heap can be resized dynamically at runtime.
+
+In general, you should use stack allocation for small objects with known sizes and lifetimes that are short and predictable, such as local variables in functions. You should use heap allocation for large objects or objects with unknown sizes and lifetimes that are long and unpredictable, such as objects created dynamically during runtime.
+
+Here is an example to demonstrate the use of stack and heap memory:
+
+```
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+public:
+    MyClass() { cout << "Constructor called" << endl; }
+    ~MyClass() { cout << "Destructor called" << endl; }
+};
+
+void foo() {
+    MyClass obj;  // object allocated on the stack
+}
+
+int main() {
+    foo();  // object allocated on the stack is created and destroyed
+    MyClass* ptr = new MyClass();  // object allocated on the heap
+    delete ptr;  // object allocated on the heap is destroyed
+    return 0;
+}
+```
+In the above example, the MyClass object created in the foo() function is allocated on the stack and has automatic storage duration. When the foo() function returns, the object is automatically deallocated.
+
+The MyClass object created with the new operator in the main() function is allocated on the heap and has dynamic storage duration. The delete operator is used to explicitly deallocate the object.
+
+In conclusion, understanding the C++ memory model and lifetime of objects is important for writing efficient and robust programs.
 ## Footnotes
 [^1]: Generated by ChatGPT.
