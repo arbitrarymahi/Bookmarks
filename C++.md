@@ -1,8 +1,95 @@
 ## Table of Contents  
-* [Reference Variables](https://github.com/arbitrarymahi/Bookmarks/blob/main/C++.md#reference-variables-in-c-1)
-* [footnotes](https://github.com/arbitrarymahi/Bookmarks/blob/main/C++.md#footnotes)
+<a href="#smart-pointers1">Smart Pointers</a><br/>
+<a href="#reference-variables1">Reference Variables</a><br/>
+<a href="#footnotes">footnotes</a><br/>
 
-## Reference variables in C++ [^1]
+## Smart Pointers[^1]
+
+In C++, a normal pointer is a variable that holds the memory address of another object. It is created using the * operator, and it can be dereferenced using the * operator to access the object it points to. Normal pointers are commonly used in C++ for dynamic memory allocation and for passing objects to functions by reference.
+
+Here's an example of using a normal pointer:
+
+```
+#include <iostream>
+
+int main() {
+    int* ptr = new int(42);
+    std::cout << *ptr << std::endl; // prints 42
+    delete ptr;
+    return 0;
+}
+```
+In this example, we use the new operator to dynamically allocate an int on the heap, and we assign its address to a normal pointer named ptr. We then dereference ptr to access the value of the int, and we delete it using the delete operator to avoid a memory leak.
+
+One caveat of using normal pointers is that they do not manage the lifetime of the object they point to automatically. It is the programmer's responsibility to ensure that the object is properly deleted when it is no longer needed. Forgetting to delete an object can result in a memory leak, where the memory allocated for the object is never reclaimed by the system. Additionally, deleting an object twice can result in undefined behavior, where the program crashes or behaves unpredictably.
+
+Another caveat of using normal pointers is that they can be null, meaning that they do not point to a valid object. Dereferencing a null pointer results in undefined behavior, where the program crashes or behaves unpredictably. To avoid this, it is a good practice to initialize pointers to null and to check for null before dereferencing them.
+```
+#include <iostream>
+
+int main() {
+    int* ptr = nullptr;
+    if (ptr != nullptr) {
+        std::cout << *ptr << std::endl;
+    }
+    return 0;
+}
+```
+In this example, we initialize the ptr pointer to null, and we check for null before dereferencing it to avoid undefined behavior.
+
+Overall, while normal pointers are a powerful tool in C++, they require careful management and can be error-prone. Smart pointers provide an alternative that automates memory management and helps prevent common mistakes. Smart pointers are objects that behave like pointers, but they automatically manage the lifetime of the object they point to. They ensure that the memory allocated for the object is properly deallocated when it is no longer needed, even in the presence of exceptions or early returns. In other words, smart pointers provide an automatic way of managing memory, so you don't have to worry about explicitly deleting objects or accidentally deleting them too soon.
+
+There are several types of smart pointers in C++, each with its own unique behavior and use case. Here are the most common ones:
+
+1. `unique_ptr`: This type of smart pointer represents an exclusive ownership of a dynamically allocated object. It cannot be copied, only moved. When the unique_ptr goes out of scope or is explicitly reset, it automatically deletes the object it owns. Here's an example:
+```
+#include <memory>
+#include <iostream>
+
+int main() {
+    std::unique_ptr<int> ptr(new int(42));
+    std::cout << *ptr << std::endl; // prints 42
+    *ptr = 84;
+    std::cout << *ptr << std::endl; // prints 84
+    return 0;
+} // ptr automatically deletes the int it owns
+```
+2. `shared_ptr`: This type of smart pointer represents shared ownership of a dynamically allocated object. It keeps track of the number of shared_ptr objects that point to the same object, and when the last one goes out of scope or is explicitly reset, it deletes the object. Here's an example:
+```
+#include <memory>
+#include <iostream>
+
+int main() {
+    std::shared_ptr<int> ptr1(new int(42));
+    std::shared_ptr<int> ptr2 = ptr1;
+    std::cout << *ptr1 << std::endl; // prints 42
+    std::cout << *ptr2 << std::endl; // prints 42
+    *ptr1 = 84;
+    std::cout << *ptr2 << std::endl; // prints 84
+    return 0;
+} // ptr1 and ptr2 both delete the int they share ownership of
+```
+3. `weak_ptr`: This type of smart pointer represents weak ownership of a dynamically allocated object. It is used in conjunction with shared_ptr to avoid circular references that can cause memory leaks. It can be used to check if the object it points to still exists without actually owning it. Here's an example:
+```
+#include <memory>
+#include <iostream>
+
+int main() {
+    std::shared_ptr<int> ptr1(new int(42));
+    std::weak_ptr<int> ptr2 = ptr1;
+    std::cout << *ptr1 << std::endl; // prints 42
+    std::cout << *ptr2.lock() << std::endl; // prints 42
+    ptr1.reset();
+    if (ptr2.expired()) {
+        std::cout << "ptr1 is gone" << std::endl;
+    }
+    return 0;
+} // ptr2 does not delete the int it weakly owns
+```
+The need for smart pointers arises from the fact that C++ does not have garbage collection
+    
+
+## Reference variables[^1]
 ### What are variables in C++?
 Variables are named memory locations that hold values of a specific type in a C++ program. In order to use variables in our program, we need to declare them first.
 
