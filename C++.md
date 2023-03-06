@@ -1,4 +1,6 @@
 ## Table of Contents  
+
+<a href="https://stackoverflow.com/a/4757718/7277094">Forward Declaration</a><br/>
 <a href="#smart-pointers-1">Smart Pointers</a><br/>
 <a href="#reference-variables-1">Reference Variables</a><br/>
 <a href="#memory-model-1">Memory Model</a><br/>
