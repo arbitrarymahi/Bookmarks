@@ -2,10 +2,14 @@
 <a href="https://miro.com/app/board/o9J_lpap34Q=/">RoadMap</a><br/>
 <a href="https://stackoverflow.com/a/4757718/7277094">Forward Declaration</a><br/>
 <a href="https://learn.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170">Namespaces</a><br/>
+#### Classes related
+<a href="https://stackoverflow.com/questions/1306778/virtual-pure-virtual-explained">Virtual vs pure virtual functions</a><br/>
 <a href="https://stackoverflow.com/questions/14902129/default-parameters-in-h-and-cpp-files">Default parameters declaration</a><br/>
+#### Pointers and reference related
 <a href="#smart-pointers-1">Smart Pointers</a><br/>
 <a href="#reference-variables-1">Reference Variables</a><br/>
 <a href="#memory-model-1">Memory Model</a><br/>
+
 <a href="#footnotes">footnotes</a><br/>
 
 ## Smart Pointers [^1]
