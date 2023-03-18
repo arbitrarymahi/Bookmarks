@@ -16,8 +16,12 @@
 #### Create React App:
   `npx create-react-app appname`<br/>
   **NPX** temporarily downloads the **create-react-app** and using it our app is created. Then **create-react-app** packge is deleted.<br/><br/>
+  `npm install`<br/>
+  installs all the modules inside package.json<br/><br/>
   `npm start`<br/>
-  Starts the app
+  Starts development build of the app<br/><br/>
+  `npm run build`<br/>
+  create a production build of the app
 
 ### Project Structure
 * **package.json**
@@ -40,6 +44,8 @@
   * JSX (JavaScript Syntax Extension and occasionally referred as JavaScript XML) is an extension to the JavaScript language syntax. It is similar in appearance to HTML. It allows one to write HTML+JS together. 
   * We use `className` in JSX while `class` in HTML. This is because in JS `class` is a reserved keyword, so can't be used for element/tags names.
   * `for` is also a reserved keyword, so we need to use `htmlFor`
+  * We can return only one element. To return more than one element, we can wrap all in JSX Fragment **<>...</>**
+  * we can use JS variables inside curly braces. ex: `{var_name}`
 ### Building 
 **src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
 React prefers camelCase.
