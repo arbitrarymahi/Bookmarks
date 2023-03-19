@@ -1,10 +1,11 @@
 ### Table of Content
 * <a href="https://beta.reactjs.org/learn">Docs React.js org</a>
 * <a href="#setup-requirements">Setup</a>
+* <a href="#tips">Some Tips</a>
 * <a href="#commands">Commands</a>
 * <a href="#create-react-app">Create React App</a>
 * <a href="#project-structure">Project Structure</a>
-* <a href="#basic-terminology">IMP terms</a>
+* <a href="#default-vs-named-exports">Default vs Named exports</a>
 
 ### Setup requirements:
 * Node 
@@ -22,6 +23,11 @@
   Starts development build of the app<br/><br/>
   `npm run build`<br/>
   create a production build of the app
+  
+### Tips 
+* **src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
+* React prefers camelCase.
+* Keep things organized from start by segregating in respective directories.
 
 ### Project Structure
 * **package.json**
@@ -36,6 +42,7 @@
 ### Basic Terminology
 * **Components**
   * Building blocks of a react app.
+  * Names start with capital letter
 * **Props** 
   * (Properties) passed to the components, just like parameters to a function.
 * **Strict Mode**
@@ -46,6 +53,32 @@
   * `for` is also a reserved keyword, so we need to use `htmlFor`
   * We can return only one element. To return more than one element, we can wrap all in JSX Fragment **<>...</>**
   * we can use JS variables inside curly braces. ex: `{var_name}`
-### Building 
-**src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
-React prefers camelCase.
+
+### Default vs named exports
+we can export variables, functions classses etc using `export` keyword.
+* Default export use the default keyword.
+* There can be only one default export per module.
+* Default exports can be imported using any name/alias in importing module.
+```
+exportmodule.mjs:
+export default x;
+------------------------------------
+importmodule.mjs:
+import axe from './exportmodule.mjs';
+console.log(axe);
+```
+* named module are imported and exported using curly braces {}.
+* They must be imported using their original(exported) name.
+* We can have any number of named exports in a module.
+
+```
+exportmodule.mjs:
+export {x};
+export {y};
+------------------------------------
+importmodule.mjs:
+import {axe,why} from './exportmodule.mjs'; //wrong, can't alias to some other name
+import {x,y} from './exportmodule.mjs'; //correct
+console.log(x);
+```
+### Passing props
