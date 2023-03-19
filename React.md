@@ -1,47 +1,52 @@
 ### Table of Content
 * <a href="https://beta.reactjs.org/learn">Docs React.js org</a>
 * <a href="#setup-requirements">Setup</a>
-* <a href="#tips">Some Tips</a>
 * <a href="#commands">Commands</a>
-* <a href="#create-react-app">Create React App</a>
+* <a href="#tips">Some Tips</a>
 * <a href="#project-structure">Project Structure</a>
+* <a href="#basic-terminology">Basic Terminology</a>
 * <a href="#default-vs-named-exports">Default vs Named exports</a>
+* <a href="#props">Props</a>
 
+## Setup requirements:
 <details>
-  <summary><b>Setup requirements</b></summary>
+  <summary>Expand</summary>
   
-### Setup requirements:
-* Node 
-* NPM
-* Code editor
-* Browser
+  * Node 
+  * NPM
+  * Code editor
+  * Browser
+</details>
+
+## Commands
+<details>
+  <summary>Expand</summary>
+  
+Create React App:
+`npx create-react-app appname`<br/>
+**NPX** temporarily downloads the **create-react-app** and using it our app is created. Then **create-react-app** packge is deleted.<br/><br/>
+`npm install`<br/>
+installs all the modules inside package.json<br/><br/>
+`npm start`<br/>
+Starts development build of the app<br/><br/>
+`npm run build`<br/>
+create a production build of the app
   </details>
-  <details>
-  <summary><b>Commands</b></summary>
-  
-### Commands
-#### Create React App:
-  `npx create-react-app appname`<br/>
-  **NPX** temporarily downloads the **create-react-app** and using it our app is created. Then **create-react-app** packge is deleted.<br/><br/>
-  `npm install`<br/>
-  installs all the modules inside package.json<br/><br/>
-  `npm start`<br/>
-  Starts development build of the app<br/><br/>
-  `npm run build`<br/>
-  create a production build of the app
-    </details>
-      <details>
-  <summary><b>Tips</b></summary>
-  
-### Tips 
+
+## Tips 
+<details>
+  <summary>Expand</summary>
+
 * **src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
 * React prefers camelCase.
 * Keep things organized from start by segregating in respective directories.
-  </details>
-  <details>
-  <summary><b>Project Structure</b></summary>
+</details>
+
+## Project Structure
+
+<details>
+  <summary>Expand</summary>
     
-### Project Structure
 * **package.json**
   * contains project information and required packages for the project.
 * **package-lock.json**
@@ -52,10 +57,12 @@
 * **src**/
   * Contains all components of the project.
      </details>
-  <details>
-  <summary><b>Basic Terminology</b></summary>
+     
+## Basic Terminology
+
+<details>
+  <summary>Expand</summary>
         
-### Basic Terminology
 * **Components**
   * Building blocks of a react app.
   * Names start with capital letter
@@ -69,11 +76,14 @@
   * `for` is also a reserved keyword, so we need to use `htmlFor`
   * We can return only one element. To return more than one element, we can wrap all in JSX Fragment **<>...</>**
   * we can use JS variables inside curly braces. ex: `{var_name}`
-  </details>
-        <details>
-  <summary><b>Default vs named exports</b></summary>
+  
+</details>
+  
+## Default vs named exports
+
+<details>
+  <summary>Expand</summary>
         
-### Default vs named exports
 we can export variables, functions classses etc using `export` keyword.
 * Default export use the default keyword.
 * There can be only one default export per module.
@@ -100,21 +110,21 @@ import {axe,why} from './exportmodule.mjs'; //wrong, can't alias to some other n
 import {x,y} from './exportmodule.mjs'; //correct
 console.log(x);
 ```
-  </details>
-        <details>
-  <summary><b>Props</b></summary>
+</details>
+
+## Props
+  <details>
+  <summary>Expand</summary>
     
-### Props
+
 #### passing props
 * We can pass the props inside tags of the component, where we use the component
 * Ex : `<My_Component title="my_title" prop2 = "something here" />`
 * Then inside the component itself, we can use them just like function arguments. 
 * Props are read-only, inside the components, they should only be used and not overwritten.(pure function)
-  </details>
-    <details>
-  <summary><b>proptypes and default props</b></summary>
-    
+  
 #### proptypes and default props
+    
 * We can define the expected type of the props inside a component by using `component.propTypes` property of the component.
 * We need to `import PropTypes from prop-types`
 * We can also use `isRequired` to set a prop as required.(it's good to ensure this)
