@@ -7,12 +7,16 @@
 * <a href="#project-structure">Project Structure</a>
 * <a href="#default-vs-named-exports">Default vs Named exports</a>
 
+<details>
+  <summary>Setup requirements</summary>
+  
 ### Setup requirements:
 * Node 
 * NPM
 * Code editor
 * Browser
 
+  </details>
 ### Commands
 #### Create React App:
   `npx create-react-app appname`<br/>
@@ -81,4 +85,17 @@ import {axe,why} from './exportmodule.mjs'; //wrong, can't alias to some other n
 import {x,y} from './exportmodule.mjs'; //correct
 console.log(x);
 ```
-### Passing props
+### Props
+#### passing props
+* We can pass the props inside tags of the component, where we use the component
+* Ex : `<My_Component title="my_title" prop2 = "something here" />`
+* Then inside the component itself, we can use them just like function arguments. 
+* Props are read-only, inside the components, they should only be used and not overwritten.(pure function)
+
+#### proptypes and default props
+* We can define the expected type of the props inside a component by using `component.propTypes` property of the component.
+* We need to `import PropTypes from prop-types`
+* We can also use `isRequired` to set a prop as required.(it's good to ensure this)
+* `ComponentName.propTypes = { firstProp : PropTypes.string, secondProp : PropTypes.string.isRequired ...}`
+* using defaultProps we can set default values.
+* `ComponentName.defaultProps = { firstProp : 'value 1', secondProp : ...}`
