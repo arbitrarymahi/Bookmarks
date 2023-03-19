@@ -8,15 +8,17 @@
 * <a href="#default-vs-named-exports">Default vs Named exports</a>
 
 <details>
-  <summary>Setup requirements</summary>
+  <summary><b>Setup requirements</b></summary>
   
 ### Setup requirements:
 * Node 
 * NPM
 * Code editor
 * Browser
-
   </details>
+  <details>
+  <summary><b>Commands</b></summary>
+  
 ### Commands
 #### Create React App:
   `npx create-react-app appname`<br/>
@@ -27,12 +29,18 @@
   Starts development build of the app<br/><br/>
   `npm run build`<br/>
   create a production build of the app
+    </details>
+      <details>
+  <summary><b>Tips</b></summary>
   
 ### Tips 
 * **src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
 * React prefers camelCase.
 * Keep things organized from start by segregating in respective directories.
-
+  </details>
+  <details>
+  <summary><b>Project Structure</b></summary>
+    
 ### Project Structure
 * **package.json**
   * contains project information and required packages for the project.
@@ -43,6 +51,10 @@
   * contains index.html and other publically available resources for the project.
 * **src**/
   * Contains all components of the project.
+     </details>
+  <details>
+  <summary><b>Basic Terminology</b></summary>
+        
 ### Basic Terminology
 * **Components**
   * Building blocks of a react app.
@@ -57,7 +69,10 @@
   * `for` is also a reserved keyword, so we need to use `htmlFor`
   * We can return only one element. To return more than one element, we can wrap all in JSX Fragment **<>...</>**
   * we can use JS variables inside curly braces. ex: `{var_name}`
-
+  </details>
+        <details>
+  <summary><b>Default vs named exports</b></summary>
+        
 ### Default vs named exports
 we can export variables, functions classses etc using `export` keyword.
 * Default export use the default keyword.
@@ -85,13 +100,20 @@ import {axe,why} from './exportmodule.mjs'; //wrong, can't alias to some other n
 import {x,y} from './exportmodule.mjs'; //correct
 console.log(x);
 ```
+  </details>
+        <details>
+  <summary><b>Props</b></summary>
+    
 ### Props
 #### passing props
 * We can pass the props inside tags of the component, where we use the component
 * Ex : `<My_Component title="my_title" prop2 = "something here" />`
 * Then inside the component itself, we can use them just like function arguments. 
 * Props are read-only, inside the components, they should only be used and not overwritten.(pure function)
-
+  </details>
+    <details>
+  <summary><b>proptypes and default props</b></summary>
+    
 #### proptypes and default props
 * We can define the expected type of the props inside a component by using `component.propTypes` property of the component.
 * We need to `import PropTypes from prop-types`
@@ -99,3 +121,4 @@ console.log(x);
 * `ComponentName.propTypes = { firstProp : PropTypes.string, secondProp : PropTypes.string.isRequired ...}`
 * using defaultProps we can set default values.
 * `ComponentName.defaultProps = { firstProp : 'value 1', secondProp : ...}`
+    </details>
