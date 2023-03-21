@@ -65,9 +65,11 @@
 </details>
 
 ### Rebase
-    Usually, when we do some development, we split our own branch(say sidebranch), make some changes and then merge it to main. The point of split is the base for the new branch. Now, Before merging, if the main branch also gets some more commits, then it has moved ahead from the base of our(sidebranch) branch. 
-    what happens if we try to merge?
-    otherwise we can rebase to current commit of main, which deletes the branch from history and log thinks that it was always on main and not merged.
+ 
+    * Usually, when we do some development, we split our own branch(say sidebranch), make some changes and then merge it to main. The point of split is the base for the new branch. 
+    * Now, Before merging, if the main branch also gets some more commits, then it has moved ahead from the base of our(sidebranch) branch. If we want to merge here, we'll need to resolve conflicts, which is normal.
+    * Otherwise, we can rebase to current commit of main, which deletes the branch(sidebranch) from history and log thinks that it was always on main and not merged. so basically the base of that sidebranch was changed and placed on top of current commit of node. Now if main and sidebranch fork(split) again then base of sidebranch is newer commit. Without rebasing it would've been older one.
+    * We still need to resolve conflicts in case of merging.
     
 ### Git Submodules:
  <details>
