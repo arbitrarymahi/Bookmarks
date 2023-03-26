@@ -10,7 +10,6 @@
 
 ## Setup requirements:
 <details>
-  <summary>Expand</summary>
   
   * Node 
   * NPM
@@ -20,7 +19,6 @@
 
 ## Commands
 <details>
-  <summary>Expand</summary>
   
 Create React App:
 `npx create-react-app appname`<br/>
@@ -35,7 +33,6 @@ create a production build of the app
 
 ## Tips 
 <details>
-  <summary>Expand</summary>
 
 * **src/index.js** renders the given component (usually App.js component) in the **public/html**'s root div. We add everything in the App component only, and create new components.
 * React prefers camelCase.
@@ -45,7 +42,6 @@ create a production build of the app
 ## Project Structure
 
 <details>
-  <summary>Expand</summary>
     
 * **package.json**
   * contains project information and required packages for the project.
@@ -55,13 +51,12 @@ create a production build of the app
 * **public**/
   * contains index.html and other publically available resources for the project.
 * **src**/
-  * Contains all components of the project.
+  * Contains all components of the project., we can create dirs for better management of project files
      </details>
      
 ## Basic Terminology
 
 <details>
-  <summary>Expand</summary>
         
 * **Components**
   * Building blocks of a react app.
@@ -82,7 +77,6 @@ create a production build of the app
 ## Default vs named exports
 
 <details>
-  <summary>Expand</summary>
         
 we can export variables, functions classses etc using `export` keyword.
 * Default export use the default keyword.
@@ -114,9 +108,7 @@ console.log(x);
 
 ## Props
   <details>
-  <summary>Expand</summary>
-    
-
+  
 #### passing props
 * We can pass the props inside tags of the component, where we use the component
 * Ex : `<My_Component title="my_title" prop2 = "something here" />`
@@ -132,3 +124,20 @@ console.log(x);
 * using defaultProps we can set default values.
 * `ComponentName.defaultProps = { firstProp : 'value 1', secondProp : ...}`
     </details>
+
+## State
+  <details>
+    
+#### state Hook
+* The `useState` Hook can be used to define a variable and a function for changing the state of it.
+```  
+import React, {useState} from "react"; //useState is a hook
+const [text, changeText] = useState("current texts"); // useState initialized value of text. `text` and `changeText` can be named anything.
+changeText("something else"); // calling this fn with some value changes value(state) of text.
+```
+* We can't directly assign a value to state variable i.e. `text`
+
+
+    
+    
+  </details>
