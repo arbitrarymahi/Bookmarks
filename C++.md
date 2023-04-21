@@ -9,7 +9,15 @@
 <a href="#smart-pointers-1">Smart Pointers</a><br/>
 <a href="#reference-variables-1">Reference Variables</a><br/>
 <a href="#memory-model-1">Memory Model</a><br/>
+### using files
+<a href="https://pubs.opengroup.org/onlinepubs/007904975/functions/open.html"> open a file</a><br/>
+<a href="https://stackoverflow.com/questions/6537436/how-do-you-get-file-size-by-fd"> File size</a><br/>
+<a href="https://www.youtube.com/watch?v=nPIhoJ6lKeQ">Memory-Mapped files [Theory]</a><br/>
+<a href="https://medium.com/i0exception/memory-mapped-files-5e083e653b1">an article on mmap in linux</a><br/>
+<a href="https://man7.org/linux/man-pages/man2/mmap.2.html">usign mmap(). [check example at the bottom]</a><br/>
+**note**: We need to cast the mmap object to suitable data type. In case of reading a file we can cast it to `char *`
 
+    
 <a href="#footnotes">footnotes</a><br/>
 
 ## Smart Pointers [^1]
