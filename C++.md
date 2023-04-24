@@ -17,7 +17,7 @@
 <a href="https://man7.org/linux/man-pages/man2/mmap.2.html">usign mmap(). [check example at the bottom]</a><br/>
 **note**: We need to cast the mmap object to suitable data type. In case of reading a file we can cast it to `char *`
 
-    
+<a href="https://www.learncpp.com/">Try this tutorial [untested at the time of adding to bookmarks]</a><br/>
 <a href="#footnotes">footnotes</a><br/>
 
 ## Smart Pointers [^1]
